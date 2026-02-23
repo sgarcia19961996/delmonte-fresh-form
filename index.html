@@ -4,20 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Del Monte Fresh End-of-Day Form</title>
+    <style>
+        /* Add your CSS styling here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .photo-upload {
+            margin: 10px 0;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Del Monte Fresh End-of-Day Form</h1>
-    <form>
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name"><br><br>
 
-        <label for="date">Date:</label><br>
-        <input type="date" id="date" name="date"><br><br>
+<h1>Del Monte Fresh End-of-Day Form</h1>
+<form id="endOfDayForm" action="YOUR_POWER_AUTOMATE_URL" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="currentDateTime">Current Date and Time (UTC):</label>
+        <input type="text" id="currentDateTime" name="currentDateTime" required pattern="\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}">
+    </div>
 
-        <label for="comments">Comments:</label><br>
-        <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br><br>
+    <div class="form-group">
+        <label for="userLogin">Current User's Login:</label>
+        <input type="text" id="userLogin" name="userLogin" required>
+    </div>
 
-        <input type="submit" value="Submit">
-    </form>
+    <!-- Add the remaining 11 fields here -->
+    <div class="form-group">
+        <label for="field1">Field 1:</label>
+        <input type="text" id="field1" name="field1" required>
+    </div>
+    <div class="form-group">
+        <label for="field2">Field 2:</label>
+        <input type="text" id="field2" name="field2" required>
+    </div>
+    <!-- Repeat for remaining fields -->
+
+    <div class="form-group photo-upload">
+        <label for="photoUpload">Upload Photo:</label>
+        <input type="file" id="photoUpload" name="photoUpload" accept="image/*" required>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+</form>
+
+<script>
+    document.getElementById('endOfDayForm').onsubmit = function() {
+        // Optional: Add any JavaScript validation here
+    };
+</script>
+
 </body>
 </html>
